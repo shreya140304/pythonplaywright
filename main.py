@@ -5,7 +5,7 @@ from playwright.async_api import async_playwright
 STORAGE_STATE = "storage_state.json"
 
 # Replace with your app details
-BASE_URL = "https://example.com/login"
+BASE_URL = "https://hiring.idenhq.com/challenge"
 USERNAME = "your_username"
 PASSWORD = "your_password"
 
@@ -41,7 +41,7 @@ async def run():
             print(" Session saved!")
 
         # At this point, you’re logged in
-        await page.goto("https://example.com/dashboard")
+        await page.goto("https://hiring.idenhq.com/challenge")
         await page.wait_for_timeout(5000)
 
         await browser.close()
