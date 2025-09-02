@@ -21,14 +21,14 @@ async def run():
 
         context_args = {}
         if os.path.exists(STORAGE_STATE):
-            print("✅ Using existing session")
+            print(" Using existing session")
             context_args["storage_state"] = STORAGE_STATE
 
         context = await browser.new_context(**context_args)
         page = await context.new_page()
 
         if not os.path.exists(STORAGE_STATE):
-            print("🔑 No session found, logging in...")
+            print(" No session found, logging in...")
             await page.goto(BASE_URL)
             await page.fill(USERNAME_SELECTOR, USERNAME)
             await page.fill(PASSWORD_SELECTOR, PASSWORD)
@@ -38,7 +38,7 @@ async def run():
 
             # Save session
             await context.storage_state(path=STORAGE_STATE)
-            print("💾 Session saved!")
+            print(" Session saved!")
 
         # At this point, you’re logged in
         await page.goto("https://example.com/dashboard")
